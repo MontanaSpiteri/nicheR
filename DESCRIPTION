@@ -1,0 +1,10 @@
+Package: nicheR
+Type: Package
+Title: Spatial niche algorithm 
+Version: 0.1.0
+Author: Saskia Freytag <freytag.s@wehi.edu.au>, Montana Spiteri <spiteri.m@wehi.edu.au>
+Maintainer: Montana Spiteri <spiteri.m@wehi.edu.au>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
