@@ -11,7 +11,7 @@
 #' @param cores A vector specifying the number of cores to implement (Default: 10).
 #' @param prob A logical value indicating if the user in interested in calculating the probability (Default: FALSE).
 #'
-#' @return A dataframe of detected niches
+#' @return A dataframe of niches
 #' @export
 #'
 #' @examples
@@ -21,6 +21,7 @@ find_niches <- function(df_polygons, spe, anno="Anno", barcode="Barcode", tile_h
     df_polygons$Barcode <- paste0(df_polygons$cellID, "_", df_polygons$fov)
     df_polygons$Anno <- spe[, anno][match(df_polygons$Barcode, spe[, barcode])]
     df_polygons <- df_polygons[!df_polygons$Anno %in% c("Not available", "Unknown", "unknown", "N/A", "NA"), ]
+    df_polygons <- df_polygons[!is.na(df_polygons$Anno), ]
     df_polygons$Anno <- factor(df_polygons$Anno)
 
     start=0-(tile_height-tile_shift)
