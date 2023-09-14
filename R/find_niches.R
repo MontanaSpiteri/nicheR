@@ -1,28 +1,23 @@
-#' Find Spatial Niches
+#' Identify Spatial Niches
 #'
-#' @param df_polygons A dataframe object containing spatial polygon information.
-#' @param spe A SpatialExperiment object.
+#' @param spe A SpatialExperiment object. Polygon, annotation and cell barcode information stored in metadata.
 #' @param anno A character string specifying the name of the annotation column in spe (Default: "Anno").
-#' @param barcode A character string specifying the name of the column containing cell barcode information in spe (Default: "Barcode").
+#' @param barcode A character string specifying the name of the column containing cell barcode information in spe (Default: "Barcode"). Barcode structure: "cellID_fov".
 #' @param tile_height A vector specifying tile height (Default: 1000).
 #' @param tile_shift A vector specifying tile shift (Default: 100).
 #' @param image_size Vectors specifying image size (Default: c(4400, 4400)).
 #' @param num_clusters A vector specifying the number of clusters (Default: 9).
-#' @param cores A vector specifying the number of cores to implement (Default: 10).
-#' @param prob A logical value indicating if the user in interested in calculating the probability (Default: FALSE).
+#' @param cores A vector specifying the number of cores (Default: 10).
+#' @param prob A logical value indicating if the user in interested in calculating probability (Default: FALSE).
 #'
-#' @return A dataframe of niches
+#' @return Dataframe of spatial niches.
 #' @export
 #'
 #' @examples
-find_niches <- function(df_polygons, spe, anno="Anno", barcode="Barcode", tile_height=1000, tile_shift=100,
+find_niches <- function(spe, anno="Anno", barcode="Barcode", tile_height=1000, tile_shift=100,
                         image_size=c(4400, 4400), num_clusters=9, cores=10, prob=FALSE) {
 
-    df_polygons$Barcode <- paste0(df_polygons$cellID, "_", df_polygons$fov)
-    df_polygons$Anno <- spe[, anno][match(df_polygons$Barcode, spe[, barcode])]
-    df_polygons <- df_polygons[!df_polygons$Anno %in% c("Not available", "Unknown", "unknown", "N/A", "NA"), ]
-    df_polygons <- df_polygons[!is.na(df_polygons$Anno), ]
-    df_polygons$Anno <- factor(df_polygons$Anno)
+    df_polygons <- as.data.frame(colData(spe)[, c("fov", "cellID", "x_local_px", "y_local_px", "x_global_px", "y_global_px", barcode, anno)])
 
     start=0-(tile_height-tile_shift)
     image_size=image_size+tile_height-tile_shift
@@ -39,7 +34,7 @@ find_niches <- function(df_polygons, spe, anno="Anno", barcode="Barcode", tile_h
     # per fov find all cells within the defined tile (starting point defined in all_tiles)
     cells_in_tiles <- unlist(cells_in_tiles, recursive = FALSE)
     cells_in_tiles <- do.call(rbind, cells_in_tiles)
-    colnames(cells_in_tiles) <- levels(df_polygons$Anno)
+    colnames(cells_in_tiles) <- levels(df_polygons$anno)
 
     all_tiles <- data.frame(x=rep(all_tiles[,1], length(index)), y=rep(all_tiles[,2], length(index)),
                             fov=rep(names(index), each=nrow(all_tiles)))
