@@ -1,4 +1,4 @@
-#' Average Clusters within Shift (Embedded in find_niches)
+#' Average Clusters within Shift
 #'
 #' @param start_tile
 #' @param clusters

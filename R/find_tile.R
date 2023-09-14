@@ -1,4 +1,4 @@
-#' Find Tiles (Embedded in find_niches)
+#' Find Tiles
 #'
 #' @param x
 #' @param df_final_1

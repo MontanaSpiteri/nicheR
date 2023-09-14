@@ -1,4 +1,4 @@
-#' Identify Cells Within Tile (Embedded in find_niches)
+#' Identify Cells Within Tile
 #'
 #' @param start_tile
 #' @param df

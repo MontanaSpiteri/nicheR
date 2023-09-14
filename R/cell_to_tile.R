@@ -1,6 +1,6 @@
 #' Map Tiles Back to Cells from find_niches Output
 #'
-#' @param df_final A dataframe object from the find_niches output.
+#' @param df_final A dataframe object from find_niches output.
 #' @param spe A SpatialExperiment object.
 #' @param tile_shiftA vector specifying tile shift.
 #' @param cores A vector specifying the number of cores to implement (Default: 10).
