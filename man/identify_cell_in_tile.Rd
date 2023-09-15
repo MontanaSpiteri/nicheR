@@ -2,7 +2,7 @@
 % Please edit documentation in R/identify_cell_in_tile.R
 \name{identify_cell_in_tile}
 \alias{identify_cell_in_tile}
-\title{Identify Cell in Tile (Embedded in find_niches)}
+\title{Identify Cell in Tile}
 \usage{
 identify_cell_in_tile(
   df_spe_1,
@@ -16,5 +16,5 @@ identify_cell_in_tile(
 \item{prob}{}
 }
 \description{
-Identify Cell in Tile (Embedded in find_niches)
+Identify Cell in Tile
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/average_clusters_within_shift.R
 \name{average_clusters_within_shift}
 \alias{average_clusters_within_shift}
-\title{Average Clusters within Shift (Embedded in find_niches)}
+\title{Average Clusters within Shift}
 \usage{
 average_clusters_within_shift(start_tile, clusters, tile_shift, tile_height)
 }
@@ -10,5 +10,5 @@ average_clusters_within_shift(start_tile, clusters, tile_shift, tile_height)
 \item{tile_height}{}
 }
 \description{
-Average Clusters within Shift (Embedded in find_niches)
+Average Clusters within Shift
 }

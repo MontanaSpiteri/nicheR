@@ -2,7 +2,7 @@
 % Please edit documentation in R/identify_cells_within_tile.R
 \name{identify_cells_within_tile}
 \alias{identify_cells_within_tile}
-\title{Identify Cells Within Tile (Embedded in find_niches)}
+\title{Identify Cells Within Tile}
 \usage{
 identify_cells_within_tile(start_tile, df, tile_height)
 }
@@ -10,5 +10,5 @@ identify_cells_within_tile(start_tile, df, tile_height)
 \item{tile_height}{}
 }
 \description{
-Identify Cells Within Tile (Embedded in find_niches)
+Identify Cells Within Tile
 }

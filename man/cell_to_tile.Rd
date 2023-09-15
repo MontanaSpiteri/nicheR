@@ -7,7 +7,7 @@
 cell_to_tile(df_final, spe, tile_shift, cores = 10, prob = FALSE)
 }
 \arguments{
-\item{df_final}{A dataframe object from the find_niches output.}
+\item{df_final}{A dataframe object from find_niches output.}
 
 \item{spe}{A SpatialExperiment object.}
 

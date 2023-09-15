@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_tile.R
 \name{find_tile}
 \alias{find_tile}
-\title{Find Tiles (Embedded in find_niches)}
+\title{Find Tiles}
 \usage{
 find_tile(x, df_final_1, tile_shift)
 }
@@ -10,5 +10,5 @@ find_tile(x, df_final_1, tile_shift)
 \item{tile_shift}{}
 }
 \description{
-Find Tiles (Embedded in find_niches)
+Find Tiles
 }

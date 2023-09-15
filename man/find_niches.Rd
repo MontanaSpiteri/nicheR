@@ -2,10 +2,9 @@
 % Please edit documentation in R/find_niches.R
 \name{find_niches}
 \alias{find_niches}
-\title{Find Spatial Niches}
+\title{Identify Spatial Niches}
 \usage{
 find_niches(
-  df_polygons,
   spe,
   anno = "Anno",
   barcode = "Barcode",
@@ -18,13 +17,11 @@ find_niches(
 )
 }
 \arguments{
-\item{df_polygons}{A dataframe object containing spatial polygon information.}
-
-\item{spe}{A SpatialExperiment object.}
+\item{spe}{A SpatialExperiment object. Polygon, annotation and cell barcode information stored in metadata.}
 
 \item{anno}{A character string specifying the name of the annotation column in spe (Default: "Anno").}
 
-\item{barcode}{A character string specifying the name of the column containing cell barcode information in spe (Default: "Barcode").}
+\item{barcode}{A character string specifying the name of the column containing cell barcode information in spe (Default: "Barcode"). Barcode structure: "cellID_fov".}
 
 \item{tile_height}{A vector specifying tile height (Default: 1000).}
 
@@ -34,13 +31,13 @@ find_niches(
 
 \item{num_clusters}{A vector specifying the number of clusters (Default: 9).}
 
-\item{cores}{A vector specifying the number of cores to implement (Default: 10).}
+\item{cores}{A vector specifying the number of cores (Default: 10).}
 
-\item{prob}{A logical value indicating if the user in interested in calculating the probability (Default: FALSE).}
+\item{prob}{A logical value indicating if the user in interested in calculating probability (Default: FALSE).}
 }
 \value{
-A dataframe of niches
+Dataframe of spatial niches.
 }
 \description{
-Find Spatial Niches
+Identify Spatial Niches
 }
