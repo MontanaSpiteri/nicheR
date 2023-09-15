@@ -17,7 +17,7 @@
 find_niches <- function(spe, anno="Anno", barcode="Barcode", tile_height=1000, tile_shift=100,
                         image_size=c(4400, 4400), num_clusters=9, cores=10, prob=FALSE) {
 
-    df_polygons <- as.data.frame(colData(spe)[, c("fov", "cellID", "x_local_px", "y_local_px", "x_global_px", "y_global_px", barcode, anno)])
+    df_polygons <- as.data.frame(colData(spe)[, c("fov", "x_local_px", "y_local_px", "x_global_px", "y_global_px", barcode, anno)])
 
     start=0-(tile_height-tile_shift)
     image_size=image_size+tile_height-tile_shift
