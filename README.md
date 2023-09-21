@@ -6,7 +6,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of nicheR is to …
+Description …
 
 ## Installation
 
@@ -18,11 +18,8 @@ You can install the development version of nicheR from
 devtools::install_github("MontanaSpiteri/nicheR")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Usage
 
 ``` r
 library(nicheR)
-## basic example code
 ```
