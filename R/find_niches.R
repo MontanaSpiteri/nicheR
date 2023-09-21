@@ -1,8 +1,10 @@
 #' Identify Spatial Niches
 #'
-#' @param spe A SpatialExperiment object. Polygon, annotation and cell barcode information stored in metadata.
+#' @param spe A SpatialExperiment object. Polygon/x and y spatial co-ordinates, annotation and cell barcode information stored in metadata.
 #' @param anno A character string specifying the name of the annotation column in spe (Default: "Anno").
-#' @param barcode A character string specifying the name of the column containing cell barcode information in spe (Default: "Barcode"). Barcode structure: "cellID_fov".
+#' @param barcode A character string specifying the name of the column containing cell barcode information in spe (Default: "Barcode"). Barcode structure: "CellID_fov".
+#' @param x_coord A character string specifying the name of the column containing x spatial co-ordinates (Default: "x").
+#' @param y_coord A character string specifying the name of the column containing y spatial co-ordinates (Default: "y").
 #' @param tile_height A vector specifying tile height (Default: 1000).
 #' @param tile_shift A vector specifying tile shift (Default: 100).
 #' @param image_size Vectors specifying image size (Default: c(4400, 4400)).
@@ -10,14 +12,18 @@
 #' @param cores A vector specifying the number of cores (Default: 10).
 #' @param prob A logical value indicating if the user in interested in calculating probability (Default: FALSE).
 #'
+#' @import mclust
+#' @import parallel
+#' @import vegan
+#'
 #' @return Dataframe of spatial niches.
 #' @export
 #'
 #' @examples
-find_niches <- function(spe, anno="Anno", barcode="Barcode", tile_height=1000, tile_shift=100,
+find_niches <- function(spe, anno="Anno", barcode="Barcode", x_coord="x", y_coord="y", tile_height=1000, tile_shift=100,
                         image_size=c(4400, 4400), num_clusters=9, cores=10, prob=FALSE) {
 
-    df_polygons <- as.data.frame(colData(spe)[, c("fov", "x_local_px", "y_local_px", "x_global_px", "y_global_px", barcode, anno)])
+    df_polygons <- as.data.frame(colData(spe)[, c("fov", x_coord, y_coord, barcode, anno)])
 
     start=0-(tile_height-tile_shift)
     image_size=image_size+tile_height-tile_shift
