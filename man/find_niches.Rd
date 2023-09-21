@@ -8,6 +8,8 @@ find_niches(
   spe,
   anno = "Anno",
   barcode = "Barcode",
+  x_coord = "x",
+  y_coord = "y",
   tile_height = 1000,
   tile_shift = 100,
   image_size = c(4400, 4400),
@@ -17,11 +19,15 @@ find_niches(
 )
 }
 \arguments{
-\item{spe}{A SpatialExperiment object. Polygon, annotation and cell barcode information stored in metadata.}
+\item{spe}{A SpatialExperiment object. Polygon/x and y spatial co-ordinates, annotation and cell barcode information stored in metadata.}
 
 \item{anno}{A character string specifying the name of the annotation column in spe (Default: "Anno").}
 
-\item{barcode}{A character string specifying the name of the column containing cell barcode information in spe (Default: "Barcode"). Barcode structure: "cellID_fov".}
+\item{barcode}{A character string specifying the name of the column containing cell barcode information in spe (Default: "Barcode"). Barcode structure: "CellID_fov".}
+
+\item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: "x").}
+
+\item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: "y").}
 
 \item{tile_height}{A vector specifying tile height (Default: 1000).}
 
