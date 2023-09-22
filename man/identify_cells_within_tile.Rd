@@ -4,10 +4,10 @@
 \alias{identify_cells_within_tile}
 \title{Identify Cells Within Tile}
 \usage{
-identify_cells_within_tile(start_tile, df, tile_height)
+identify_cells_within_tile(start_tile, df, tile_height, x_coord, y_coord)
 }
 \arguments{
-\item{tile_height}{}
+\item{y_coord}{}
 }
 \description{
 Identify Cells Within Tile

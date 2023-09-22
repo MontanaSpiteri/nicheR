@@ -14,9 +14,8 @@ identify_cells_within_tile <- function(start_tile, df, tile_height, x_coord, y_c
 
     tile <- rbind(start_tile, start_tile+tile_height)
 
-    df %>% dplyr::filter(!!sym(x_coord) >= tile[1,1] & !!sym(x_coord) < tile[2,1] &
-                             !!sym(y_coord) >= tile[1,2] & !!sym(y_coord) < tile[2,2]) %>%
+    df %>% dplyr::filter(.data[[x_coord]] >= tile[1,1] & .data[[x_coord]] < tile[2,1] &
+                             .data[[y_coord]] >= tile[1,2] & .data[[y_coord]] < tile[2,2]) %>%
         dplyr::count(Anno, .drop=FALSE)
+
 }
-
-

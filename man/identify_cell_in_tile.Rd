@@ -8,6 +8,9 @@ identify_cell_in_tile(
   df_spe_1,
   df_final_1,
   tile_shift,
+  x_use,
+  y_use,
+  barcode,
   cores = 10,
   prob = FALSE
 )
