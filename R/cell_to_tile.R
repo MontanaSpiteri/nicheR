@@ -33,7 +33,7 @@ cell_to_tile <- function(df_final, spe, fov="fov", barcode="Barcode", data_type=
     index <- split(1:nrow(df_final), df_final$fov)
     df_final_split <- lapply(index, function(x) df_final[x,])
 
-    index <- split(1:ncol(spe), spe$fov)
+    index <- split(1:ncol(spe), colData(spe)[, fov])
     spe_split <- lapply(index, function(x) as.data.frame(colData(spe)[x,
                                                                       c(x_use, y_use, barcode)]))
     df_final_split <- df_final_split[names(spe_split)]

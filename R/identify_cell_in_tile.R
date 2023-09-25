@@ -19,7 +19,7 @@ identify_cell_in_tile <- function(df_spe_1, df_final_1, tile_shift,
 
     df_tmp <- df_spe_1[, c(x_use, y_use)]
     df_tmp <- as.list(as.data.frame(t(df_tmp)))
-    names(df_tmp) <- df_spe_1$barcode
+    names(df_tmp) <- df_spe_1[, barcode]
 
     if(prob){
         cluster_tmp <- mclapply(df_tmp, function(x) {

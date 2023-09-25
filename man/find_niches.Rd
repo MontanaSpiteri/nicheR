@@ -8,12 +8,8 @@ find_niches(
   spe,
   fov = "fov",
   anno = "Anno",
-  barcode = "Barcode",
-  data_type = c("polygon", "dot"),
   x_coord = "x_local_px",
   y_coord = "y_local_px",
-  x_centre = "CenterX_local_px",
-  y_centre = "CenterY_local_px",
   tile_height = 1000,
   tile_shift = 100,
   image_size = c(4400, 4400),
@@ -29,17 +25,9 @@ find_niches(
 
 \item{anno}{A character string specifying the name of the annotation column in spe (Default: 'Anno').}
 
-\item{barcode}{A character string specifying the name of the column containing cell barcode information in spe (Default: 'Barcode'). Barcode structure: 'CellID_fov'.}
-
-\item{data_type}{A character string indicating if spe contains polygon or dot/point information (Options: 'polygon' or 'dot').}
-
 \item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x_local_px').}
 
 \item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y_local_px').}
-
-\item{x_centre}{A character string specifying the name of the column containing x centroid co-ordinates (Default: 'CenterX_local_px'). Applicable for data_type='polygon'.}
-
-\item{y_centre}{A character string specifying the name of the column containing y centroid co-ordinates (Default: 'CenterY_local_px'). Applicable for data_type='polygon'.}
 
 \item{tile_height}{A vector specifying tile height (Default: 1000).}
 
