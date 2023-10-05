@@ -1,16 +1,12 @@
 #' Identify Cells Within Tile
 #'
 #' @param start_tile
-#' @param df_data
+#' @param df
 #' @param tile_height
 #' @param x_coord
 #' @param y_coord
 #' @param anno
 #'
-#' @return
-#' @export
-#'
-#' @examples
 identify_cells_within_tile <- function(start_tile, df, tile_height, x_coord, y_coord, anno){
 
     tile <- rbind(start_tile, start_tile+tile_height)

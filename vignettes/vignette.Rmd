@@ -1,5 +1,7 @@
 ---
 title: "vignette"
+author: "Saskia Freytag, Montana Spiteri"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{vignette}
@@ -13,6 +15,23 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
+# Introduction
+
+nicheR is a user-friendly R package providing functions to identify spatial niches from spatial transcriptomics data. 
+
+All functions in this package are compatible with the `r BiocStyle::Biocpkg("SpatialExperiment")` infrastructure and may be utilised with polygon and/or dots from spatial data. 
+
+The package can provide information of the unique niches present in spatial data and also holds capabilities to map cells back to niches for optimal inference of cellular neighbourhoods. 
+
+# Installation
+
+```{r, eval=FALSE}
+install.packages("devtools")
+devtools::install_github("MontanaSpiteri/nicheR")
+```
+
+# Quick Start
 
 ```{r setup}
 library(nicheR)

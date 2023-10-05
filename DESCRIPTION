@@ -4,11 +4,9 @@ Title: Spatial Niche Algorithm
 Version: 0.1.0
 Author: Saskia Freytag <freytag.s@wehi.edu.au>, Montana Spiteri <spiteri.m@wehi.edu.au>
 Maintainer: Montana Spiteri <spiteri.m@wehi.edu.au>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Method to identify niches of co-occuring cell types from spatial transcriptomics and proteomics data with single cell resolution.
 Imports: 
     mclust,
-    vegan,
     dplyr,
     parallel,
     infotheo,

@@ -1,5 +1,7 @@
 #' Identify Spatial Niches
 #'
+#' Find niches of commonly co-occurring cell types in spatial transcriptomics or proteomics data.
+#'
 #' @param spe A SpatialExperiment object. Polygon/x and y spatial co-ordinates, annotation and cell barcode information stored in metadata.
 #' @param fov A character string specifying the name of the fields of view column in spe (Default: 'fov').
 #' @param anno A character string specifying the name of the annotation column in spe (Default: 'Anno').
@@ -14,12 +16,22 @@
 #'
 #' @import mclust
 #' @import parallel
-#' @import vegan
 #' @import magrittr
 #' @import dplyr
+#' @importFrom rDist parDist
 #'
-#' @return Dataframe of spatial niches.
+#' @return Dataframe identifying spatial niches assignment or when `prob=TRUE` the probability of each niche for each tile.
 #' @export
+#'
+#' @details `find_niches` uses the cell type positions and provided cell type annotation as input to identify niches of
+#' commonly co-occurring cell types. `find_niches` works using a window approach. First each FOV, if applicable, or the entire region
+#' are divided into overlapping windows of size `tile_height` times `tile_height`. These windows shifted by `tile_shift` in x and y
+#' direction resulting in overlaps. In each window, we count the number of different cell types.
+#' Using a Bray-Curtis dissimilarity implemented a hierarchical clustering tree is built, which can be used to determine `num_clusters`
+#' niches. For each `tile_shift` by `tile_shift` tile of each region is overlapped by multiple windows with
+#' an associated niche label used to determine the probability of each tile to be a member of a certain niche or using
+#' a majority voting strategy to identify a niche label. Note that edges of FOVs or entire regions are expanded to avoid edge effects. Hence, for
+#' FOVs that are adjacent treat them like one continuous region.
 #'
 #' @examples
 find_niches <- function(spe, fov="fov", anno="Anno", x_coord="x_local_px", y_coord="y_local_px", tile_height=1000, tile_shift=100,
@@ -53,7 +65,7 @@ find_niches <- function(spe, fov="fov", anno="Anno", x_coord="x_local_px", y_coo
     rownames(cells_in_tiles) <- paste0(all_tiles[,1], "_", all_tiles[,2], "_", all_tiles[,3])
     # find name for each tile
 
-    dist_tiles <- vegdist(cells_in_tiles)
+    dist_tiles <- parDist(cells_in_tiles, method = 'bray', threads = cores)
     # calculate distance between tiles
     clusters <- hclust(dist_tiles, method="ward.D2")
     clusters <- cutree(clusters, k = num_clusters)

@@ -22,7 +22,7 @@ cell_to_tile(
 \arguments{
 \item{df_final}{A dataframe object from find_niches output.}
 
-\item{spe}{A SpatialExperiment object.}
+\item{spe}{A SpatialExperiment object. Polygon/x and y spatial co-ordinates, annotation and cell barcode information stored in metadata.}
 
 \item{fov}{A character string specifying the name of the fields of view column in spe (Default: 'fov').}
 

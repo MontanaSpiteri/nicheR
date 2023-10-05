@@ -1,7 +1,7 @@
 #' Map Tiles Back to Cells from find_niches Output
 #'
 #' @param df_final A dataframe object from find_niches output.
-#' @param spe A SpatialExperiment object.
+#' @param spe A SpatialExperiment object. Polygon/x and y spatial co-ordinates, annotation and cell barcode information stored in metadata.
 #' @param fov A character string specifying the name of the fields of view column in spe (Default: 'fov').
 #' @param barcode A character string specifying the name of the column containing cell barcode information in spe (Default: 'Barcode'). Barcode structure: 'CellID_fov'.
 #' @param data_type A character string indicating if spe contains polygon or dot/point information (Options: 'polygon' or 'dot').

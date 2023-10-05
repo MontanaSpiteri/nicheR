@@ -6,7 +6,10 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-Description …
+Identify niches of co-occuring cell types from spatial transcriptomics
+and proteomics data with single cell resolution. `nicheR` implements a
+convolutional network type approach to identify niches in spatial omics
+data.
 
 ## Installation
 
@@ -14,7 +17,7 @@ You can install the development version of nicheR from
 [GitHub](https://github.com/MontanaSpiteri/nicheR) with:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("MontanaSpiteri/nicheR")
 ```
 

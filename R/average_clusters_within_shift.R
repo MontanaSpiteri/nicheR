@@ -5,10 +5,7 @@
 #' @param tile_shift
 #' @param tile_height
 #'
-#' @return
-#' @export
 #'
-#' @examples
 average_clusters_within_shift <- function(start_tile, clusters, tile_shift, tile_height){
 
     tile <- rbind(as.numeric(start_tile), as.numeric(start_tile)+tile_shift)

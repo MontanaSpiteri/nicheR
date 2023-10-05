@@ -42,8 +42,19 @@ find_niches(
 \item{prob}{A logical value indicating if the user in interested in calculating probability (Default: FALSE).}
 }
 \value{
-Dataframe of spatial niches.
+Dataframe identifying spatial niches assignment or when `prob=TRUE` the probability of each niche for each tile.
 }
 \description{
-Identify Spatial Niches
+Find niches of commonly co-occurring cell types in spatial transcriptomics or proteomics data.
+}
+\details{
+`find_niches` uses the cell type positions and provided cell type annotation as input to identify niches of
+commonly co-occurring cell types. `find_niches` works using a window approach. First each FOV, if applicable, or the entire region
+are divided into overlapping windows of size `tile_height` times `tile_height`. These windows shifted by `tile_shift` in x and y
+direction resulting in overlaps. In each window, we count the number of different cell types.
+Using a Bray-Curtis dissimilarity implemented a hierarchical clustering tree is built, which can be used to determine `num_clusters`
+niches. For each `tile_shift` by `tile_shift` tile of each region is overlapped by multiple windows with
+an associated niche label used to determine the probability of each tile to be a member of a certain niche or using
+a majority voting strategy to identify a niche label. Note that edges of FOVs or entire regions are expanded to avoid edge effects. Hence, for
+FOVs that are adjacent treat them like one continuous region.
 }
