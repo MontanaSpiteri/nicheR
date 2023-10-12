@@ -6,9 +6,6 @@
 \usage{
 identify_cells_within_tile(start_tile, df, tile_height, x_coord, y_coord, anno)
 }
-\arguments{
-\item{anno}{}
-}
 \description{
 Identify Cells Within Tile
 }

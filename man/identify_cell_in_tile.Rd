@@ -15,9 +15,6 @@ identify_cell_in_tile(
   prob = FALSE
 )
 }
-\arguments{
-\item{prob}{}
-}
 \description{
 Identify Cell in Tile
 }

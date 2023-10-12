@@ -10,8 +10,8 @@ cell_to_tile(
   fov = "fov",
   barcode = "Barcode",
   data_type = c("polygon", "dot"),
-  x_coord = "x_local_px",
-  y_coord = "y_local_px",
+  x_coord = "x",
+  y_coord = "y",
   x_centre = "CenterX_local_px",
   y_centre = "CenterY_local_px",
   tile_shift,
@@ -30,9 +30,9 @@ cell_to_tile(
 
 \item{data_type}{A character string indicating if spe contains polygon or dot/point information (Options: 'polygon' or 'dot').}
 
-\item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x_local_px').}
+\item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x').}
 
-\item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y_local_px').}
+\item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y').}
 
 \item{x_centre}{A character string specifying the name of the column containing x centroid co-ordinates (Default: 'CenterX_local_px'). Applicable for data_type='polygon'.}
 

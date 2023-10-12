@@ -1,4 +1,4 @@
-#' @importFrom rDist parDist
+#' @importFrom parallelDist parDist
 #' @import mclust
 #' @import SpatialExperiment
 #' @import mclust
@@ -7,7 +7,6 @@
 #' @import scran
 #' @import parallel
 #' @import infotheo
-
 NULL
 
 #' Method to identify niches of co-occuring cell types from spatial
@@ -18,7 +17,7 @@ NULL
 #'  \link{SpatialExperiment::SpatialExperiment} class and requires cell type
 #'  annotations as inputs.
 #'
-#' Key neighborhood analysis functions include \code{\link{find_niches}, \code{\link{cell_to_tile}
+#' Key neighborhood analysis functions include \code{\link{find_niches}}, \code{\link{cell_to_tile}}
 #'
 #'
 #'
@@ -30,6 +29,5 @@ NULL
 #' @keywords internal
 #'
 #'
-#' @useDynLib nicheR
 #'
 NULL

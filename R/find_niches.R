@@ -2,23 +2,22 @@
 #'
 #' Find niches of commonly co-occurring cell types in spatial transcriptomics or proteomics data.
 #'
-#' @param spe A SpatialExperiment object. Polygon/x and y spatial co-ordinates, annotation and cell barcode information stored in metadata.
+#' @param spe A SpatialExperiment object. Polygon centroid coordinates (where applicable), global or local x/y spatial co-ordinates, annotation and cell barcode information stored in metadata.
 #' @param fov A character string specifying the name of the fields of view column in spe (Default: 'fov').
 #' @param anno A character string specifying the name of the annotation column in spe (Default: 'Anno').
-#' @param x_coord A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x_local_px').
-#' @param y_coord A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y_local_px').
+#' @param x_coord A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x').
+#' @param y_coord A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y').
 #' @param tile_height A vector specifying tile height (Default: 1000).
 #' @param tile_shift A vector specifying tile shift (Default: 100).
-#' @param image_size Vectors specifying image size (Default: c(4400, 4400)).
 #' @param num_clusters A vector specifying the number of clusters (Default: 9).
 #' @param cores A vector specifying the number of cores (Default: 10).
 #' @param prob A logical value indicating if the user in interested in calculating probability (Default: FALSE).
 #'
 #' @import mclust
+#' @import SpatialExperiment
 #' @import parallel
-#' @import magrittr
 #' @import dplyr
-#' @importFrom rDist parDist
+#' @importFrom parallelDist parDist
 #'
 #' @return Dataframe identifying spatial niches assignment or when `prob=TRUE` the probability of each niche for each tile.
 #' @export
@@ -34,10 +33,17 @@
 #' FOVs that are adjacent treat them like one continuous region.
 #'
 #' @examples
-find_niches <- function(spe, fov="fov", anno="Anno", x_coord="x_local_px", y_coord="y_local_px", tile_height=1000, tile_shift=100,
-                        image_size=c(4400, 4400), num_clusters=9, cores=10, prob=FALSE) {
+find_niches <- function(spe, fov="fov", anno="Anno", x_coord="x", y_coord="y", tile_height=1000, tile_shift=100,
+                        num_clusters=9, cores=10, prob=FALSE, n_permutations=1) {
 
     df_polygons <- as.data.frame(colData(spe)[, c(fov, x_coord, y_coord, anno)])
+
+    x_range <- range(df_polygons[, x_coord])
+    y_range <- range(df_polygons[, y_coord])
+    width <- x_range[2] - x_range[1]
+    height <- y_range[2] - y_range[1]
+    image_size <- c(width, height)
+    #estimate approximate image size
 
     start=0-(tile_height-tile_shift)
     image_size=image_size+tile_height-tile_shift

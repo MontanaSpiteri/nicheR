@@ -5,8 +5,8 @@
 #' @param fov A character string specifying the name of the fields of view column in spe (Default: 'fov').
 #' @param barcode A character string specifying the name of the column containing cell barcode information in spe (Default: 'Barcode'). Barcode structure: 'CellID_fov'.
 #' @param data_type A character string indicating if spe contains polygon or dot/point information (Options: 'polygon' or 'dot').
-#' @param x_coord A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x_local_px').
-#' @param y_coord A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y_local_px').
+#' @param x_coord A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x').
+#' @param y_coord A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y').
 #' @param x_centre A character string specifying the name of the column containing x centroid co-ordinates (Default: 'CenterX_local_px'). Applicable for data_type='polygon'.
 #' @param y_centre A character string specifying the name of the column containing y centroid co-ordinates (Default: 'CenterY_local_px'). Applicable for data_type='polygon'.
 #' @param tile_shift A vector specifying tile shift.
@@ -17,7 +17,7 @@
 #' @export
 #'
 #' @examples
-cell_to_tile <- function(df_final, spe, fov="fov", barcode="Barcode", data_type=c("polygon","dot"), x_coord="x_local_px", y_coord="y_local_px",
+cell_to_tile <- function(df_final, spe, fov="fov", barcode="Barcode", data_type=c("polygon","dot"), x_coord="x", y_coord="y",
                          x_centre="CenterX_local_px", y_centre="CenterY_local_px", tile_shift, cores=10, prob=FALSE){
 
     data_type <- match.arg(data_type)

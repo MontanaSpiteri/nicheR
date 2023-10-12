@@ -8,32 +8,30 @@ find_niches(
   spe,
   fov = "fov",
   anno = "Anno",
-  x_coord = "x_local_px",
-  y_coord = "y_local_px",
+  x_coord = "x",
+  y_coord = "y",
   tile_height = 1000,
   tile_shift = 100,
-  image_size = c(4400, 4400),
   num_clusters = 9,
   cores = 10,
-  prob = FALSE
+  prob = FALSE,
+  n_permutations = 1
 )
 }
 \arguments{
-\item{spe}{A SpatialExperiment object. Polygon/x and y spatial co-ordinates, annotation and cell barcode information stored in metadata.}
+\item{spe}{A SpatialExperiment object. Polygon centroid coordinates (where applicable), global or local x/y spatial co-ordinates, annotation and cell barcode information stored in metadata.}
 
 \item{fov}{A character string specifying the name of the fields of view column in spe (Default: 'fov').}
 
 \item{anno}{A character string specifying the name of the annotation column in spe (Default: 'Anno').}
 
-\item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x_local_px').}
+\item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x').}
 
-\item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y_local_px').}
+\item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y').}
 
 \item{tile_height}{A vector specifying tile height (Default: 1000).}
 
 \item{tile_shift}{A vector specifying tile shift (Default: 100).}
-
-\item{image_size}{Vectors specifying image size (Default: c(4400, 4400)).}
 
 \item{num_clusters}{A vector specifying the number of clusters (Default: 9).}
 

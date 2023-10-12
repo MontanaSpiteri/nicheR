@@ -1,13 +1,5 @@
 #' Identify Cell in Tile
 #'
-#' @param df_spe_1
-#' @param df_final_1
-#' @param tile_shift
-#' @param x_use
-#' @param y_use
-#' @param barcode
-#' @param cores
-#' @param prob
 #'
 identify_cell_in_tile <- function(df_spe_1, df_final_1, tile_shift,
                                   x_use, y_use, barcode,

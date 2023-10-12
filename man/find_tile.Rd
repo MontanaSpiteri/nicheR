@@ -6,9 +6,6 @@
 \usage{
 find_tile(x, df_final_1, tile_shift)
 }
-\arguments{
-\item{tile_shift}{}
-}
 \description{
 Find Tiles
 }

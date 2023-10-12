@@ -6,9 +6,6 @@
 \usage{
 average_clusters_within_shift(start_tile, clusters, tile_shift, tile_height)
 }
-\arguments{
-\item{tile_height}{}
-}
 \description{
 Average Clusters within Shift
 }

@@ -1,8 +1,5 @@
 #' Find Tiles
 #'
-#' @param x
-#' @param df_final_1
-#' @param tile_shift
 #'
 find_tile <- function(x, df_final_1, tile_shift) {
 

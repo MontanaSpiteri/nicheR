@@ -13,7 +13,7 @@ transcriptomics and proteomics data with single cell resolution.}
  annotations as inputs.
 }
 \details{
-
+Key neighborhood analysis functions include \code{\link{find_niches}}, \code{\link{cell_to_tile}}
 }
 \author{
 Montana Spiteri \email{spiteri.m@wehi.edu.au}

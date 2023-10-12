@@ -7,11 +7,14 @@ Maintainer: Montana Spiteri <spiteri.m@wehi.edu.au>
 Description: Method to identify niches of co-occuring cell types from spatial transcriptomics and proteomics data with single cell resolution.
 Imports: 
     mclust,
+    SpatialExperiment,
     dplyr,
     parallel,
     infotheo,
     scater,
-    scran
+    scran,
+    parallelDist,
+    limma
 License: What license is it under?
 Encoding: UTF-8
 RoxygenNote: 7.2.3

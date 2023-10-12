@@ -1,9 +1,5 @@
 #' Average Clusters within Shift
 #'
-#' @param start_tile
-#' @param clusters
-#' @param tile_shift
-#' @param tile_height
 #'
 #'
 average_clusters_within_shift <- function(start_tile, clusters, tile_shift, tile_height){

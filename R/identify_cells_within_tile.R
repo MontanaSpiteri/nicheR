@@ -1,11 +1,5 @@
 #' Identify Cells Within Tile
 #'
-#' @param start_tile
-#' @param df
-#' @param tile_height
-#' @param x_coord
-#' @param y_coord
-#' @param anno
 #'
 identify_cells_within_tile <- function(start_tile, df, tile_height, x_coord, y_coord, anno){
 
