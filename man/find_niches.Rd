@@ -6,7 +6,7 @@
 \usage{
 find_niches(
   spe,
-  fov = "fov",
+  fov = NULL,
   anno = "Anno",
   x_coord = "x",
   y_coord = "y",
@@ -15,19 +15,19 @@ find_niches(
   num_clusters = 9,
   cores = 10,
   prob = FALSE,
-  n_permutations = 1
+  n_permutations = 100
 )
 }
 \arguments{
-\item{spe}{A SpatialExperiment object. Polygon centroid coordinates (where applicable), global or local x/y spatial co-ordinates, annotation and cell barcode information stored in metadata.}
+\item{spe}{A SpatialExperiment object. Polygon centroid coordinates (when applicable), global and/or local x/y spatial co-ordinates, annotation and cell barcode information stored in column data.}
 
-\item{fov}{A character string specifying the name of the fields of view column in spe (Default: 'fov').}
+\item{fov}{Optional (Default: NULL). If applicable, a character string specifying the name of the fields of view column in spe.}
 
 \item{anno}{A character string specifying the name of the annotation column in spe (Default: 'Anno').}
 
-\item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x').}
+\item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x'). If `fov=NULL`, these will be global co-ordinates, else, local co-ordinates.}
 
-\item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y').}
+\item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y'). If `fov=NULL`, these will be global co-ordinates, else, local co-ordinates.}
 
 \item{tile_height}{A vector specifying tile height (Default: 1000).}
 
@@ -38,6 +38,8 @@ find_niches(
 \item{cores}{A vector specifying the number of cores (Default: 10).}
 
 \item{prob}{A logical value indicating if the user in interested in calculating probability (Default: FALSE).}
+
+\item{n_permutations}{A vector specifying the number of permutations to use for null hypothesis testing (Default: 100).}
 }
 \value{
 Dataframe identifying spatial niches assignment or when `prob=TRUE` the probability of each niche for each tile.

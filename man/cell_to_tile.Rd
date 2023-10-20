@@ -30,9 +30,9 @@ cell_to_tile(
 
 \item{data_type}{A character string indicating if spe contains polygon or dot/point information (Options: 'polygon' or 'dot').}
 
-\item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x').}
+\item{x_coord}{A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x'). If fov=NULL these will be global coordinates, otherwise, local coordinates.}
 
-\item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y').}
+\item{y_coord}{A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y'). If fov=NULL these will be global coordinates, otherwise, local coordinates.}
 
 \item{x_centre}{A character string specifying the name of the column containing x centroid co-ordinates (Default: 'CenterX_local_px'). Applicable for data_type='polygon'.}
 

@@ -51,4 +51,5 @@ niche_expression <- function(spe, niches_output, assay="counts") {
     }
 
     return(differential_results)
+
 }

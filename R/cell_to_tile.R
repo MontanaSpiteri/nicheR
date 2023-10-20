@@ -5,8 +5,8 @@
 #' @param fov A character string specifying the name of the fields of view column in spe (Default: 'fov').
 #' @param barcode A character string specifying the name of the column containing cell barcode information in spe (Default: 'Barcode'). Barcode structure: 'CellID_fov'.
 #' @param data_type A character string indicating if spe contains polygon or dot/point information (Options: 'polygon' or 'dot').
-#' @param x_coord A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x').
-#' @param y_coord A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y').
+#' @param x_coord A character string specifying the name of the column containing x spatial co-ordinates (Default: 'x'). If fov=NULL these will be global coordinates, otherwise, local coordinates.
+#' @param y_coord A character string specifying the name of the column containing y spatial co-ordinates (Default: 'y'). If fov=NULL these will be global coordinates, otherwise, local coordinates.
 #' @param x_centre A character string specifying the name of the column containing x centroid co-ordinates (Default: 'CenterX_local_px'). Applicable for data_type='polygon'.
 #' @param y_centre A character string specifying the name of the column containing y centroid co-ordinates (Default: 'CenterY_local_px'). Applicable for data_type='polygon'.
 #' @param tile_shift A vector specifying tile shift.

@@ -7,14 +7,14 @@
 niche_expression(spe, niches_output, assay = "counts")
 }
 \arguments{
-\item{spe}{A SpatialExperiment object with gene expression data stored in assays. Ensure cell IDs are in colnames(spe).}
+\item{spe}{A SpatialExperiment object with gene expression data stored in assays(spe). Ensure cell IDs are in colnames(spe).}
 
-\item{niches_output}{A dataframe object from the find_niches output. Includes 'Cluster' column indicating specific niches.}
+\item{niches_output}{A dataframe object from the find_niches output. Includes 'Cluster' column indicating niches.}
 
 \item{assay}{A character vector specifying the name of the gene expression assay in spe (Default: 'counts').}
 }
 \value{
-List of top differentially expressed genes per niche.
+List of top differentially expressed genes per niche (Clusters)
 }
 \description{
 Find Uniquely Expressed Genes per Niche

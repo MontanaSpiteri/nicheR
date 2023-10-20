@@ -4,7 +4,7 @@
 \alias{compute_test_statistic}
 \title{Compute Test Statistic}
 \usage{
-compute_test_statistic(clusters_df, dist_tiles)
+compute_test_statistic(clusters_df, dist_matrix)
 }
 \description{
 Compute Test Statistic

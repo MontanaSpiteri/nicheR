@@ -2,15 +2,15 @@
 #'
 #'
 #'
-compute_test_statistic <- function(clusters_df, dist_tiles) {
+compute_test_statistic <- function(clusters_df, dist_matrix) {
 
-    grouped <- split(1:nrow(dist_tiles), clusters_df$cluster)
+    grouped <- split(1:nrow(dist_matrix), clusters_df$cluster)
     intra_cluster_distances <- sapply(grouped, function(indices) {
-        mean(dist_tiles[indices, indices])
-
+        mean(dist_matrix[indices, indices], na.rm = TRUE)
     })
 
     return(mean(intra_cluster_distances))
+
 }
 NULL
 
