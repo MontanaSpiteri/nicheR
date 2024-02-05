@@ -72,16 +72,13 @@ find_niches <- function(spe, fov=NULL, anno="Anno", x_coord="x", y_coord="y", ti
     # per fov find all cells within the defined tile (starting point defined in all_tiles)
     cells_in_tiles <- unlist(cells_in_tiles, recursive = FALSE)
     cells_in_tiles <- do.call(rbind, cells_in_tiles)
-
     colnames(cells_in_tiles) <- levels(df_polygons[,anno])
 
-    if (!is.null(fov)) {
-        all_tiles <- data.frame(x=rep(all_tiles[,1], length(index)), y=rep(all_tiles[,2], length(index)),
-                                fov=rep(names(index), each=nrow(all_tiles)))
-    } else {
-        all_tiles <- data.frame(x=all_tiles[,1], y=all_tiles[,2]) # 'fov' is absent, so we skip it
+    # Calculate mean number of cells per tile and check if less than 20
+    mean_cells_per_tile <- mean(rowSums(cells_in_tiles))
+    if(mean_cells_per_tile < 20) {
+        warning("Warning: The mean number of cells per window is less than 20. This may affect the accuracy of niche identification.")
     }
-    # construct the 'all_tiles' dataframe differently based on 'fov' availability
 
     index_remove <- rowSums(cells_in_tiles) < 3
     all_tiles <- all_tiles[!index_remove, ]
@@ -132,14 +129,14 @@ find_niches <- function(spe, fov=NULL, anno="Anno", x_coord="x", y_coord="y", ti
 
     cluster_in_shift <- mapply(X=all_tiles_list, Y=clusters_df, function(X,Y) mclapply(X, function(x)
         average_clusters_within_shift(x, Y, tile_shift, tile_height)[,2], mc.cores=cores))
-    # find all tiles that overlap starting point and collect clusters do so by 'fov' separately - if applicable
+    # find all tiles that overlap starting point and collect clusters. Do so by 'fov' separately - if applicable
     cluster_in_shift_x <- lapply(cluster_in_shift, function(x) do.call(rbind, x))
 
     if(prob){
 
         final_cluster <- lapply(cluster_in_shift_x, function(y)
             t(apply(y, 1, function(x) x/sum(x))))
-        # identify most common cluster for the tile do so by 'fov' separately - if applicable
+        # identify most common cluster for the tile. Do so by 'fov' separately - if applicable
         all_tiles <- lapply(all_tiles_list, function(x) do.call(rbind, x))
         df_final <- mapply(X=all_tiles, Y=final_cluster, function(X,Y)
             cbind(data.frame(x=as.numeric(X[,1]),
